@@ -1,0 +1,94 @@
+<div class="wrapper">
+  <div class="card">
+    <h1>To Do List</h1>
+
+    <form class="add-form" (ngSubmit)="addTodo()">
+      <input
+        type="text"
+        name="newTitle"
+        placeholder="Co masz do zrobienia?"
+        [(ngModel)]="newTitle"
+        autocomplete="off"
+      />
+      <button type="submit">Dodaj</button>
+    </form>
+
+    @if (todos().length > 0) {
+      <div class="toolbar">
+        <button class="link-btn" (click)="toggleAll()">
+          Zaznacz wszystkie
+        </button>
+
+        <div class="filters">
+          <button
+            [class.active]="filter() === 'all'"
+            (click)="setFilter('all')"
+          >
+            Wszystkie
+          </button>
+          <button
+            [class.active]="filter() === 'active'"
+            (click)="setFilter('active')"
+          >
+            Aktywne
+          </button>
+          <button
+            [class.active]="filter() === 'completed'"
+            (click)="setFilter('completed')"
+          >
+            Ukończone
+          </button>
+        </div>
+
+        <button class="link-btn" (click)="clearCompleted()">
+          Wyczyść ukończone
+        </button>
+      </div>
+    }
+
+    <ul class="todo-list">
+      @for (todo of filteredTodos(); track trackById($index, todo)) {
+        <li [class.completed]="todo.completed">
+          @if (editingId() === todo.id) {
+            <input
+              class="edit-input"
+              type="text"
+              [(ngModel)]="editingTitle"
+              [name]="'edit-' + todo.id"
+              (keyup.enter)="saveEdit(todo.id)"
+              (keyup.escape)="cancelEdit()"
+              (blur)="saveEdit(todo.id)"
+              autofocus
+            />
+          } @else {
+            <label class="todo-item">
+              <input
+                type="checkbox"
+                [checked]="todo.completed"
+                (change)="toggleTodo(todo.id)"
+              />
+              <span class="title" (dblclick)="startEdit(todo)">{{ todo.title }}</span>
+            </label>
+            <button class="remove-btn" (click)="removeTodo(todo.id)" aria-label="Usuń">
+              ✕
+            </button>
+          }
+        </li>
+      } @empty {
+        <li class="empty-state">
+          @if (todos().length === 0) {
+            Brak zadań — dodaj swoje pierwsze zadanie powyżej.
+          } @else {
+            Brak zadań w tej kategorii.
+          }
+        </li>
+      }
+    </ul>
+
+    @if (todos().length > 0) {
+      <div class="footer">
+        <span>{{ remainingCount() }} pozostało / {{ completedCount() }} ukończono</span>
+      </div>
+    }
+  </div>
+</div>
