@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "todo-angular",
+  "name": "todo-angular-v2",
   "compatibility_date": "2026-08-17",
   "assets": {
     "directory": "dist/todo-angular",
