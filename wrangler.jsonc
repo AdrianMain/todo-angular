@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "todo-angular",
+  "compatibility_date": "2026-08-17",
+  "assets": {
+    "directory": "dist/todo-angular",
+    "not_found_handling": "single-page-application"
+  }
+}
