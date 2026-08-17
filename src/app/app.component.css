@@ -8,7 +8,7 @@
 .card {
   width: 100%;
   max-width: 520px;
-  background: #ffffff;
+  background: #242831;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   padding: 28px 28px 20px;
@@ -18,7 +18,7 @@ h1 {
   margin: 0 0 20px;
   font-size: 26px;
   font-weight: 700;
-  color: #111827;
+  color: white;
   text-align: center;
 }
 
@@ -93,7 +93,7 @@ h1 {
 .link-btn {
   border: none;
   background: transparent;
-  color: #6b7280;
+  color: #c6ccd7;
   cursor: pointer;
   font-size: 13px;
   padding: 4px;
@@ -116,7 +116,6 @@ h1 {
   align-items: center;
   gap: 10px;
   padding: 12px 4px;
-  border-bottom: 1px solid #f0f0f0;
 }
 
 .todo-item {
@@ -137,7 +136,7 @@ h1 {
 
 .title {
   font-size: 15px;
-  color: #1f2933;
+  color: #c6ccd7;
   word-break: break-word;
 }
 
@@ -184,6 +183,6 @@ li.completed .title {
   padding-top: 12px;
   border-top: 1px solid #f0f0f0;
   font-size: 13px;
-  color: #6b7280;
+  color: #c6ccd7;
   text-align: center;
 }
