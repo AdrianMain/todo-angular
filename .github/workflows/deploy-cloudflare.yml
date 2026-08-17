@@ -33,4 +33,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/todo-angular/browser --project-name=todo-angular
+          command: pages deploy dist/todo-angular/browser --project-name=todo-angular-v2
